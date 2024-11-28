@@ -20,14 +20,14 @@ class StudentController extends Controller
         return redirect()->route('dashboard')->with([
             'success' => 'Student added successfully',
             'newStudent' => $student,
-
+  
         ]);
     }
 
     public function destroy(Student $student)
     {
         $student->delete();
-        return redirect()->route('dashboard')->with('success', 'Student deleted successfully');
+        return redirect()->route('dashboard')->with('success_delete', 'Student deleted successfully');
 
     }
     //

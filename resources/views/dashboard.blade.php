@@ -9,6 +9,17 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg p-6">
                 <div class = "mb-6">
+                    @if(session('success'))
+                        <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative mb-4" role="alert">
+                            <strong class="font-bold">{{ session('success')}}</strong>
+                            <span class="block sm:inline">Student has been added successfully</span>
+                        </div>
+                    @else
+                    <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4" role="alert">
+                            <strong class="font-bold">{{ session('success_delete')}}</strong>
+                            <span class="block sm:inline">Student has been deleted successfully</span>
+                        </div>
+                    @endif
                     <h3 class = "text-lg font-medium mb-4">Add New Student</h3>
                     <form method = "post" action="{{ route('student.store') }}">
                         @csrf
